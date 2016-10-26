@@ -1,0 +1,45 @@
+<ion-view id="page13">
+  <ion-nav-bar id="listnavbar">
+    <ion-nav-buttons side="left">
+      <button class="button button-clear " ui-sref="detail">
+        <i class="icon ion-ios-arrow-left white"></i>
+      </button>
+    </ion-nav-buttons>
+  </ion-nav-bar>
+  <ion-header-bar class="bar-creditease">
+    <h1 class="title-creditease"><span class="myellipsis">审批</span></h1>
+  </ion-header-bar>
+
+    <ion-content>
+      <div class="ly_main" style="background-color:#f0efed ">
+      <div class="ly_prwarp">
+        <div class="ly_process">
+          <!--审批页面-->
+          <div class="ly_approvalpage" style="width: 100%">
+            <textarea  class="feedbackcontent" rows="20" ng-model="comment"  ng-change="checkText()" style="width: 100%;overflow-y:scroll" id="comment" placeholder="请输入您的意见（500字以内）"></textarea>
+            <div class="ly_info">
+              <p>温馨提示</p>
+              <p style="color:#6e6e6e;">请填写审批意见。</p>
+            </div>
+          </div>
+          <!--end 审批页面-->
+
+        </div>
+    </div>
+        </div>
+    </ion-content>
+  <div class="ly_main" style="background-color:#f0efed ">
+    <div class="ly_footeras">
+      <table cellpadding="0" cellspacing="0" width="100%">
+        <tr>
+          <td  ng-if="taskStatus!=11" ng-click="approve()"><a href="#">同意</a></td>
+          <td ng-if="taskStatus==11" ng-click="reply()"><a href="#">回复</a></td>
+          <td  ng-click="show('add')"><a>转发</a></td>
+          <td ng-click="show('reject')" ng-if="taskStatus!=11"><a href="#">驳回</a></td>
+        </tr>
+      </table>
+    </div>
+
+
+  </div>
+</ion-view>

@@ -1,0 +1,147 @@
+<ion-view id="page10"  cache-view="false">
+  <ion-nav-bar id="listnavbar">
+    <ion-nav-buttons side="left">
+      <button class="button button-clear " ng-click="gotolist()">
+        <i class="icon ion-ios-arrow-left white"></i>
+      </button>
+    </ion-nav-buttons>
+  </ion-nav-bar>
+  <ion-header-bar class="bar-creditease">
+    <h1 class="title-creditease"><span class="myellipsis">{{content.processName}}</span></h1>
+  </ion-header-bar>
+  <div class="ly_main">
+  <ion-content scroll="auto" style="margin-bottom: 30px;background: #f0efed;">
+	<div style="width: 100%;margin-top:100px;text-align:center" class="col-center row-center" ng-show="showLoading">加载中...</div>
+      <!--流程基本信息-->
+      <div class="ly_prwarp scrollwrapper scrollcss">
+        <div class="ly_process scrollwrapper scrollcss">
+          <div class="ly_content scrollcss">
+            <div class="ly_proposer">
+              <table cellpadding="0" cellspacing="0" width="100%">
+                <tr ng-repeat="attr in content.mainTab[0].attributes">
+                  <td width="90px;">{{attr.key}}</td>
+                  <td>{{attr.value}}</td>
+                </tr>
+              </table>
+            </div>
+
+          </div>
+
+          <div class="ly_infoBox">
+            <div class="ly_list"  ng-repeat="mainTab in content.mainTab">
+              <div ng-bind="cssindex=$index%4"  style="display:none"></div>
+              <div ng-if="$index>0" id="mainTab{{$index+1}}">
+                <p class="p{{cssindex}}"  ng-Click="doActive('mainTabContent'+($index+1))">{{mainTab.tabName}}<i>
+                  <img src="images/icon/img3.png" width="11" class="initcss" id="icon-mainTabContent{{$index+1}}"/>
+                </i></p>
+                <table width="100%" cellpadding="0" cellspacing="0"  id="mainTabContent{{$index+1}}" style="display: none; color: #6e6e6e;">
+                  <tr  ng-repeat="attr in mainTab.attributes">
+                    <td class="row-center lefttdborder" width="120px">                    	
+                    	<div>
+	                      <!--
+	                      <i class="liimg"><div ng-bind="tdcss=$index%3"  style="display:none"></div><img src="images/icon/i_png7{{tdcss}}.png"  style="width: 8px;height: 8px"/></i>
+	                      -->
+	                      {{attr.key}}
+                    	</div>
+                    </td>
+                    <td class="row-center righttdborder">
+                    	<!--<div style="position: relative;">-->
+	                      <div class="row-wrap  row-center col-center" ng-if="attr.type=='item'" ng-bind-html="attr.value|to_trusted"></div>
+	
+	                        <div class="row-wrap row-center centerdiv" ng-if="attr.type=='list'"  align="left" style="padding-left: 10px">
+	                          <div class="centerdiv row-wrap" ng-repeat="c in attr.value">
+	                            <!--
+	                            <img width="14px" height="14px" style="float: left"  ng-if="isListContain(attr.selected,c)" src="images/icon/selected.png"/><span style="float: left"  ng-if="isListContain(attr.selected,c)" class="list-label">{{c}}</span>
+	                            <img width="14px" height="14px" style="float: left"   ng-if="!isListContain(attr.selected,c)" src="images/icon/noselected.png"/><span style="float: left"  ng-if="!isListContain(attr.selected,c)" class="list-label">{{c}}</span>
+	                            -->
+	                            <img style="width: 12px;height: 12px;float: left;margin-top: 8px" src="images/icon/selected.png"  ng-if="isListContain(attr.selected,c)" /><span style="float: left;"  ng-if="isListContain(attr.selected,c)" >{{c}}</span>
+	                            <img style="width: 12px;height: 12px;float: left;margin-top: 8px" src="images/icon/noselected.png"  ng-if="!isListContain(attr.selected,c)" /><span style="float: left;"  ng-if="!isListContain(attr.selected,c)" >{{c}}</span>
+	                            &nbsp;&nbsp;
+	                          </div>
+	                        </div>
+	
+	                      <div ng-if="attr.type=='attachment'"  align="left" style="padding-left: 10px">
+	                        <div  class="row row-wrap "   ng-repeat="c in attr.value">
+	                          <span ng-click="OpenAttachLink( c.fileUrl,c.fileName)"  class="list-label" style="color: #00a2e8;text-decoration:underline " >{{c.fileName}}</span>
+	                        </div>
+	                      </div>												
+	                    	<!--圆圈
+												<div ng-bind="cssindex=$index%4"  style="display:none"></div>
+												<i class="circle{{cssindex}}"></i>-->
+											<!--</div>-->
+                    </td>
+                  </tr>
+                </table>
+              </div>
+            </div>
+            <div class="ly_list"  ng-repeat="tab in content.detailTabs"  id="detailTab{{$index+1}}">
+              <div ng-bind="detailTabMark=$index"  style="display:none"></div>
+              <div ng-bind="cssindex2=$index%4"  style="display:none"></div>
+              <p class="p{{cssindex2}}"  ng-Click="doActive('detailTabContent'+($index+1))">{{tab.tabName}}
+                <i><img src="images/icon/img3.png" width="11"  class="initcss"  id="icon-detailTabContent{{$index+1}}"/></i></p>
+              <div  id="detailTabContent{{$index+1}}"   style="display: none">
+                <div  ng-repeat="attr in tab.attributes"  class="subp-wrap">
+                  <div ng-bind="cssindex3=$index%6"  style="display:none"></div>
+                  <p ng-Click="doActive('detailTabContent'+(detailTabMark+1)+'-detailAttrContent'+($index+1))"
+                     class="subp{{cssindex3}}">
+                    {{attr.title}}<i><img src="images/icon/img3-4.png" class="initcss" width="11" id="icon-detailTabContent{{detailTabMark+1}}-detailAttrContent{{$index+1}}"/></i>
+                  </p>
+                  <table width="100%" cellpadding="0" cellspacing="0"   id="detailTabContent{{detailTabMark+1}}-detailAttrContent{{$index+1}}"   style="display: none; color: #6e6e6e;">
+                    <tr  ng-repeat="data in attr.data">
+
+
+                      <td width="120px" class="lefttdborder">
+                        <!--
+                        <i><div ng-bind="tdcss2=$index%3"  style="display:none"></div><img src="images/icon/i_png7{{tdcss2}}.png" style="width: 8px;height: 8px"/></i>
+                        -->
+                        <div>{{data.key}}</div>
+                      </td>
+
+                      <td class="righttdborder">
+                      	<!--<div style="position: relative;">-->
+	                        <div class="row-wrap  row-center col-center"  ng-if="data.type=='item'"   ng-bind-html="data.value|to_trusted"></div>
+	
+	                        <div class="row-wrap row-center centerdiv" ng-if="data.type=='list'"  align="left" style="padding-left: 10px">
+	                          <div class="centerdiv row-wrap item-text-wrap" ng-repeat="c in data.value">
+	                            <img style="width: 12px;height: 12px;float: left;margin-top: 8px"  ng-if="isListContain(data.selected,c)" src="images/icon/selected.png"/><span style="float: left"  ng-if="isListContain(data.selected,c)" >{{c}}</span>
+	                            <img style="width: 12px;height: 12px;float: left;margin-top: 8px"   ng-if="!isListContain(data.selected,c)" src="images/icon/noselected.png"/><span style="float: left"  ng-if="!isListContain(data.selected,c)" >{{c}}</span>
+	                            &nbsp;&nbsp;
+	                          </div>
+	                        </div>
+	
+	                        <div ng-if="data.type=='attachment'"  align="left" style="padding-left: 10px">
+	                          <div  class="row row-wrap "   ng-repeat="c in data.value">
+	                            <span ng-click="OpenAttachLink( c.fileUrl,c.fileName)"  class="list-label" style="color: #00a2e8;text-decoration:underline " >{{c.fileName}}</span>
+	                          </div>
+	                        </div>
+													<!--圆圈
+													<div ng-bind="cssindex=$index%4"  style="display:none"></div>
+													<i class="circle{{cssindex}}"></i>-->
+												<!--</div>-->
+                      </td>
+
+
+                    </tr>
+                  </table>
+                </div>
+              </div>
+            </div>
+          </div>
+
+
+        </div>
+
+      </div>
+
+  </ion-content>
+
+    <div class="ly_footers">
+      <table cellpadding="0" cellspacing="0" width="100%" height="45">
+        <tr>
+          <td class="ly_inext ons" ng-show="showList()"><a href="#" ui-sref="approve">下一步</a></td>
+          <td class="ly_ijl ons" ><a href="#" ui-sref="history">审批记录</a></td>
+        </tr>
+      </table>
+    </div>
+  </div>
+</ion-view>

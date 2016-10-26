@@ -1,0 +1,66 @@
+<ion-view title="" id="page9"  cache-view="false" style="background: #f0efed">
+  <ion-nav-bar id="listnavbar">
+    <ion-nav-buttons side="left">
+      <button class="button button-clear " ui-sref="home">
+        <i class="icon ion-ios-arrow-left white"></i>
+      </button>
+    </ion-nav-buttons>
+  </ion-nav-bar>
+  <ion-header-bar class="bar-creditease">
+		<!--财务待办与人事待办切换-->
+    <!--<div class="ly_list_nav fn_clear" ng-show="showList()">
+      <a href="#" class="on">财务待办</a>
+      <a ng-click="$rootScope.showAlert('建设中...')">人事待办</a>
+    </div>
+
+    <div class="ly_list_nav fn_clear"  ng-show="!showList()">
+      <a href="#" class="on">财务已办</a>
+      <a  ng-click=" $rootScope.showAlert('建设中...')">人事已办</a>
+    </div>-->
+		<h1 class="title-creditease"><span ng-show="showList()" class="myellipsis" >财务待办</span><span  ng-show="!showList()" class="myellipsis">财务已办</span></h1>
+  </ion-header-bar>
+  <ion-content style="z-index: 999">
+    <ion-refresher on-refresh="searchdata()"
+                   disable-pulling-rotation="true"
+                   pulling-text="下拉刷新..."
+                   refreshing-text="刷新中..."
+      >
+    </ion-refresher>
+    <div class="bar item-input-inset">
+      <label class="item-input-wrapper">
+        <form>
+        <!--<input type="search" id="searchtxt" placeholder="搜索"  ng-keypress="keyPressed($event)" />-->
+        <input style="font-size: 0.9em;" class="s-search" type="search" id="searchtxt" placeholder="搜索"  ng-keypress="keyPressed($event)" />
+          </form>
+        <!--
+        <div class="icon item-image ion-android-close" style="z-index: 999" onclick="alert(2)"></div>
+        -->
+      </label>
+      <!--<button class="button-small button-clear"  id="listsearchbutton"  ng-click="searchdata()"><i class="icon ion-ios-search placeholder-icon"></i></button>-->
+    </div>
+    <div style="width: 100%;margin-top:100px;text-align:center" class="col-center row-center" ng-show="showLoading">加载中...</div>
+      <div id="listdiv" class="ly_listwarp" >
+        <ul class="ly_list_ul" ui-sref="detail" id="tasklistDiv{{item.taskId}}"  ng-repeat="item in items" ng-Click="clickItem(item,$index)">
+          <div ng-bind="cssindex=$index%3"  style="display:none"></div>
+          <li >
+            <div class="ly_ihead fn_text_ov">
+              {{item.taskTitle}}
+              <img src="images/icon/i_png8.png" class="yjs" width="30" ng-show="{{type=='1'}}" />
+
+              <i class="sany{{cssindex}}"></i>
+              <i class="shu{{cssindex}}"></i>
+
+            </div>
+            <div class="row row-wrap ly_list_div" align="left">
+                <div class="col col-50 fn_text_ov" style="padding:1px 5px;"  align="left" ng-repeat="attr in item.attributes">
+                  {{attr.key}} : {{attr.value}}
+                </div>
+            </div>
+          </li>
+        </ul>
+
+        <ion-infinite-scroll  ng-if="canLoadMore()"   on-infinite="loadMore()"   immediate-check="false" distance="3%" ></ion-infinite-scroll>
+
+      </div>
+  </ion-content>
+</ion-view>

@@ -1,0 +1,85 @@
+<ion-view id="home"  ng-init="initSwiper()">
+  <div class="ly_main">
+		<style>
+			.scroll{
+				height: 100%;
+			}
+		</style>
+      <!--主页-->
+      <div class="ly_index">
+        <ion-content>
+        <div class="ly_topBk" style="height:40.48%">
+          <!-- Swiper -->
+          <div class="swiper-container"   style="height:100%">
+            <div class="swiper-wrapper"  style="height:100%">
+              <!--以后上传此处图片尺寸 必须为 750*-->
+              <div class="swiper-slide" style="background: url(images/icon/header1.jpg) no-repeat center; background-size: 100% auto;"></div>
+              <div class="swiper-slide" style="background: url(images/icon/header2.png) no-repeat center; background-size: 100% auto;"></div>
+              <div class="swiper-slide" style="background: url(images/icon/header3.png) no-repeat center; background-size: 100% auto;"></div>
+              <!--<div class="swiper-slide"><img src="images/icon/header1.jpg" style="width:100%;height:100%"/></div>
+              <div class="swiper-slide"><img src="images/icon/header2.png" style="width:100%;height:100%"/></div>
+              <div class="swiper-slide"><img src="images/icon/header3.png" style="width:100%;height:100%"/></div>-->
+            </div>
+            <!-- Add Pagination -->
+            <div class="swiper-pagination"></div>
+          </div>
+          <!--
+          <div class="ly_form">
+            <form>
+
+              <div class="ly_seek">
+                <input type="button" class="ly_bt"/>
+                <input type="text" class="ly_text" placeholder="输入单号或名称即可查询咯！"/>
+              </div>
+
+            </form>
+          </div>
+          -->
+        </div>
+        <div class="ly_listNav " style="height: 59.52%;">
+        	<div class="list-nav">
+        		<div class="list-row">
+        			<div ng-click="gototasklist('0')">
+        				<a href="#"> <img src="images/icon/i_png1.png" width="42%"/><p>待办</p></a>        				
+        			</div>
+        			<div ng-click="gototasklist('1')">
+        				<a href="#"> <img src="images/icon/i_png2.png" width="42%"/> <p>已办</p> </a>        				
+        			</div>
+        			<div ng-click="gotoim()">
+        				<a href="#"> <img src="images/icon/i_png3.png" width="42%"/> <p>咨询</p> </a>       				
+        			</div>
+        		</div>
+        		<div class="list-row">
+        			<div><a href="#"> <img src="images/icon/zhijian.png" width="42%"/> <p>指尖报销 </p></a></div>
+        			<div><a href="#" style="color: #cccccc;"> <img src="images/icon/i_png4.png" width="42%"/> <p>即将推出 </p></a></div>
+              <div><a href="#" style="color: #cccccc;"> <img src="images/icon/i_png4.png" width="42%"/> <p>即将推出 </p></a></div>
+        		</div>
+        	</div>
+          <!--<table width="100%" cellspacing="0" cellpadding="0">
+            <tr>
+              <td  ng-click="gototasklist('0')"><a href="#"> <img src="images/icon/i_png1.png" width="60"/> 待办 </a></td>
+              <td  ng-click="gototasklist('1')"><a href="#"> <img src="images/icon/i_png2.png" width="60"/> 已办 </a></td>
+              <td  ui-sref="im"><a href="#"> <img src="images/icon/i_png3.png" width="60"/> 咨询 </a></td>
+            </tr>
+            <tr>
+              <td><a href="#"> <img src="images/icon/zhijian.png" width="60"/> 指尖报销 </a></td>
+              <td><a href="#"> <img src="images/icon/i_png4.png" width="60"/> 即将推出 </a></td>
+              <td><a href="#"> <img src="images/icon/i_png4.png" width="60"/> 即将推出 </a></td>
+            </tr>
+          </table>-->
+        </div>
+        </ion-content>
+        <ion-footer-bar>
+          <div class="ly_footers">
+            <table width="100%" height="44">
+              <tr>
+                <td class="i_index on"><a href="#" ui-sref="home">首页</a></td>
+                <td class="i_user "><a href="#" ui-sref="me">我</a></td>
+                <td class="i_end" ng-click="dologout()"><a href="#">退出</a></td>
+              </tr>
+            </table>
+          </div>
+        </ion-footer-bar>
+      </div>
+  </div>
+</ion-view>

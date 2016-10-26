@@ -1,0 +1,54 @@
+<ion-view id="page13">
+  <ion-nav-bar id="listnavbar">
+    <ion-nav-buttons side="left">
+      <button class="button button-clear " ui-sref="detail">
+        <i class="icon ion-ios-arrow-left white"></i>
+      </button>
+    </ion-nav-buttons>
+  </ion-nav-bar>
+  <ion-header-bar class="bar-creditease">
+    <h1 class="title-creditease"><span class="myellipsis">审批记录</span></h1>
+  </ion-header-bar>
+  <div class="ly_main">
+    <ion-content style="padding-bottom: 30px;background: #f0efed;" >
+      <div class="ly_process ly_history" style="padding-bottom: 80px;">
+      <div class="ly_histList ly_listwarp" style="font-size: 0.8em">
+        <ul class="ly_list_ul">
+
+            <li   ng-repeat="data in content"  class="ly_ihead">
+              <div ng-bind="cssindex=$index%3"  style="display:none"></div>
+
+
+              <div class="record-list" style="width: 100%"  ng-repeat="item in data.value" style="padding: 10px;">
+
+                <div class="row row-wrap"  style="border-bottom: 1px solid #e4e4e5; padding: 10px 5px;">
+                  <div class="col col-33 " style="border-right: 1px solid #e4e4e5; padding: 2px 5px;"><span class="ly_history_span">{{item.key}}</span></div>
+                  <div class="col col-67" style=" padding: 2px 5px;"><div class="ly_history_span" ng-bind-html="item.value|to_trusted"/></div>
+                </div>
+                <!--<div class="row row-wrap"  ng-if="$index%2==1" style="background-color: #f7f7f7;border-bottom: 1px solid #e4e4e5; padding: 7px 5px;">
+                  <div class="col col-33 " style="border-right: 1px solid #e4e4e5; padding: 2px 5px;"><span class="ly_history_span">{{item.key}}</span></div>
+                  <div class="col col-67" style=" padding: 2px 5px;"><span class="ly_history_span" ng-bind-html="item.value|to_trusted"/></span>
+                </div>-->
+              </div>
+              <!--
+              <i class="ly_shu{{cssindex}}"></i>
+              <i class="ly_icon{{cssindex}}"></i>
+              -->
+            </li>
+
+
+        </ul>
+      </div>
+    </div>
+    </ion-content>
+
+    <div class="ly_footers" ng-show="showList()">
+      <table cellpadding="0" cellspacing="0" width="100%" height="45">
+        <tr>
+          <td class="ly_inext ons"><a href="#" ui-sref="approve">下一步</a></td>
+          <!--<td class="ly_ijl ons" ><a href="#" ui-sref="history">审批记录</a></td>-->
+        </tr>
+      </table>
+    </div>
+  </div>
+</ion-view>

@@ -1,0 +1,45 @@
+<ion-view title="" id="approverlist">
+    <ion-nav-bar id="listnavbar">
+      <ion-nav-buttons side="left">
+        <button class="button button-clear " ng-click="goback()">
+          <i class="icon ion-ios-arrow-left white"></i>
+        </button>
+      </ion-nav-buttons>
+    </ion-nav-bar>
+    <ion-header-bar class="bar-creditease">
+      <h1 class="title-creditease"><span class="myellipsis">选择人员</span></h1>
+    </ion-header-bar>
+    <div class="ly_main" style="background-color:#f0efed;">
+      <ion-content>
+        <div class="bar item-input-inset">
+          <label class="item-input-wrapper">
+            <!--<input type="search" id="searchtxt" placeholder="搜索"  ng-keypress="keyPressed($event)" >-->
+            <input style="font-size: 0.9em;" type="search" id="searchtxt" placeholder="搜索"  ng-keypress="keyPressed($event)" >
+          </label>
+          <!--<button class="button-small button-clear"   ng-click="searchdata()"><i class="icon ion-ios-search placeholder-icon"></i></button>-->
+        </div>
+
+        <ul class="list list-app">
+          <li class="item item-checkbox row-wrap" ng-repeat="user in users">
+            <label class="checkbox">
+              <input  type="checkbox" name="selectuser" value="{{user.userId}}" >
+            </label>
+            <div class="row row-wrap">
+	            <div class="col col-33">
+	              {{user.userName}}<br/>
+	              <font size="0.8em">{{user.userId}}</font>
+	            </div>
+	            <div class="col col-67 row-wrap" >
+	              {{user.departmentName}}
+	            </div>
+            </div>
+          </li>
+        </ul>
+        <ion-infinite-scroll
+          immediate-check="false" ng-if="canLoadMore()"  on-infinite="loadMore()" distance="1%" ></ion-infinite-scroll>
+      </ion-content>
+      <ion-footer-bar class="bar-creditease" >
+        <h1 class="title-creditease"><span class="myellipsis" style="font-size: 1em" ng-click="confirmselect()">确定</span></h1>
+      </ion-footer-bar>
+    </div>
+</ion-view>

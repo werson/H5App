@@ -1,0 +1,30 @@
+<ion-view title="" id="login"  style="background:#ff9415;">
+  <div class="ly_main" style=" min-height: 440px;">
+    <!--登陆页面-->
+    <div class="ly_log">
+      <div class="ly_logo"><img src="images/logo.png" width="100%"   /></div>
+      <div class="ly_form">
+        <form>
+          <div class="ly_box">
+            <div class="ly_list ly_name">
+              <input type="text"  ng-model="user.userid" placeholder="请输入您的用户名" />
+            </div>
+            <div class="ly_list ly_pasww">
+              <input type="password"  ng-model="user.password"  placeholder="请输入密码" />
+            </div>
+            <input type="submit" value="登录" class="submit"   ng-click="dologin()"   />
+
+            <p class="u_info"><img src="images/icon/img4.png" width="68.53%" /></p>
+
+
+          </div>
+
+        </form>
+      </div>
+      <div class="ly_boxs">
+        <span></span>
+        <span><a href="#" ng-click="forgetPwd()"><img src="images/icon/i_png13.png" width="20"  />忘记密码？</a></span>
+      </div>
+    </div>
+  </div>
+</ion-view>

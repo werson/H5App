@@ -1,0 +1,122 @@
+@charset "utf-8";
+/* CSS Document */
+
+/*初始化类*/
+@charset "UTF-8";
+html {
+	font-family: sans-serif;
+	-moz-osx-font-smoothing: grayscale;
+	-webkit-font-smoothing: antialiased;
+	text-rendering: optimizeLegibility;
+}
+
+html, body {
+	-webkit-touch-callout: none;
+	-webkit-text-size-adjust: none;
+	-webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+	-webkit-user-select: none;
+	width: 100%;
+	height: 100%;
+	font-family:"微软雅黑";
+}
+body {
+	line-height: 1.5;
+	font-size: 16px;
+	color: #000;
+ 
+	outline: 0;
+}
+html, body, header, section, footer, div, ul, ol, li, img, a, span, em, del, legend, center, strong, var, fieldset, form, label, dl, dt, dd, cite, input, hr, time, mark, code, figcaption, figure, textarea, h1, h2, h3, h4, h5, h6, p {
+	margin: 0;
+	border: 0;
+	padding: 0;
+	font-style: normal;
+}
+ul, li {
+	list-style: none;
+}
+b, strong {
+	font-weight: 700;
+}
+pre {
+	overflow: auto;
+}
+img {
+	border: 0;
+}
+p {
+	margin-top: 0;
+	margin-bottom: 0;
+	font-size: 14px;
+}
+a {
+	color: #0062cc;
+	text-decoration: none;
+	background-color: transparent;
+}
+a:hover {
+	outline: 0;
+}
+textarea {
+	overflow: hidden;
+	resize: none;
+}
+button {
+	overflow: visible;
+}
+button, select {
+	text-transform: none;
+}
+button, input, optgroup, select, textarea {
+	margin: 0;
+	font: inherit;
+	color: inherit;
+}
+hr {
+	height: 0;
+	-webkit-box-sizing: content-box;
+	-moz-box-sizing: content-box;
+	box-sizing: content-box;
+}
+pre {
+	overflow: auto;
+}
+.fn_clear:after {
+	visibility: hidden;
+	display: block;
+	font-size: 0;
+	content: " ";
+	clear: both;
+	height: 0
+}
+.fn_clear {
+	zoom: 1
+}
+.f_left, .f_right {
+	display: inline
+}
+.f_left {
+	float: left
+}
+.f_right {
+	float: right
+}
+.fn_text_ov {
+	overflow: hidden;
+	text-overflow: ellipsis;
+	white-space: nowrap
+}
+
+html {
+	width: 100%;
+	margin: 0px auto;
+}
+body {
+	margin: 0px auto;
+}
+.h_normal {
+	font-weight: normal;
+}
+ 
+ 
+input {-webkit-appearance:none; /*去除input默认样式*/}

@@ -1,0 +1,48 @@
+<ion-view title="" id="confirmapprove">
+  <ion-nav-bar id="listnavbar">
+    <ion-nav-buttons side="left">
+      <button class="button button-clear " ui-sref="approve">
+        <i class="icon ion-ios-arrow-left white"></i>
+      </button>
+    </ion-nav-buttons>
+  </ion-nav-bar>
+  <ion-header-bar class="bar-creditease">
+    <h1 class="title-creditease"><span class="myellipsis">审批</span></h1>
+  </ion-header-bar>
+  <div style="text-align: center;padding-top: 100px"  ng-show="!showview">
+    处理中...
+  </div>
+  <div class="ly_main" style="background-color:#f0efed "  ng-show="showview">
+    <ion-content style="background: #fff">
+      <div class="send_succeed"  style="min-height: 62px">
+        <div class="m_list">
+          <!--<img src="images/icon/i_png70.png"/>-->
+          <span class="t">办理动作</span>
+          <p class="l_box">{{processactiontext}}</p>
+        </div>
+
+        <div class="m_list" style="min-height: 62px">
+          <!--<img src="images/icon/i_png71.png"/>-->
+          <span class="t">选择审批人</span>
+
+          <p ng-class="getUserCss('{{user}}')" ng-repeat="user in content.approverList" ng-click="clickUser('{{user}}')"><font>{{user.value}}</font></p>
+          <div class="item-icon-right" ng-click="gotouserlist()" ng-show="showAddUser">
+            <i style="font-size: 20px; color: #7e7e7e; background: #fff;border-left:1px solid #e4e4e5; margin-top: 1px; right: 0px; padding:0 10px;" class="icon ion-android-add"></i>
+          </div>
+
+        </div>
+
+
+        <div class="m_list"  style="min-height: 62px">
+          <!--<img src="images/icon/i_png72.png"/>-->
+          <span class="t">任务标题</span>
+          <p class="l_box u_text">{{content.taskTitle}} </p>
+        </div>
+      </div>
+
+    </ion-content>
+    <ion-footer-bar class="bar-creditease"  ng-click="processTask()" >
+      <h1 class="title-creditease"><span class="myellipsis" style="font-size:15px">发送</span></h1>
+    </ion-footer-bar>
+  </div>
+</ion-view>

@@ -1,0 +1,40 @@
+<ion-view title="" id="page11">
+  <ion-nav-bar id="listnavbar">
+    <ion-nav-buttons side="left">
+      <button class="button button-clear " ui-sref="approve">
+        <i class="icon ion-ios-arrow-left white"></i>
+      </button>
+    </ion-nav-buttons>
+  </ion-nav-bar>
+  <ion-header-bar class="bar-creditease">
+    <h1 class="title-creditease"><span class="myellipsis"  id="approveTitle">转发</span></h1>
+  </ion-header-bar>
+    <ion-content>
+          <!--审批页面-->
+          <div class="ly_approvalpage" style="width: 100%;">
+            <textarea class="feedbackcontent" rows="20"  ng-model="comment"  ng-change="checkText()" style="width: 100%;height: 200px" id="comment" placeholder="请输入您的意见（500字以内）"></textarea>
+          </div>
+      <div>
+          <div class="item item-icon-right" ng-click="gotouserlist()" style="border-color:#e4e4e5;color: #6e6e6e;">
+            <i style="font-size: 20px; color: #6e6e6e;" class="icon ion-android-add"></i>审批人
+          </div>
+          <div class="item item-divider item-icon-right" ng-repeat="user in selecteduserlist" style="border-color:#e4e4e5; background: #fff;">
+            <i  style="font-size: 20px; color: #6e6e6e;" class="icon ion-android-close " ng-click="removeuser('{{user}}')"></i>
+            <div class="row row-wrap" style="padding:5px 0;">
+            <div class="col col-33 left" style="padding: 0;color: #6e6e6e;">
+              {{user.userName}}
+            </div>
+            <div class="col row-wrap col-67 left " style="padding: 0;color: #6e6e6e;">
+              {{user.departmentName}}
+            </div>
+
+          </div>
+          </div>
+      </div>
+          <!--end 审批页面-->
+    </ion-content>
+    <ion-footer-bar class="bar-creditease"  ng-click="appendTask()">
+      <h1 class="title-creditease" ><span class="myellipsis" style="font-size: 1em" >发送</span></h1>
+    </ion-footer-bar>
+
+</ion-view>
